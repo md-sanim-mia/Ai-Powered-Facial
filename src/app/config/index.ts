@@ -43,7 +43,7 @@ export default {
   stripe: {
     secret_key: process.env.STRIPE_SECRET_KEY,
   },
-   googleAuth: {
+  googleAuth: {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: `${process.env.BACKEND_URL}/auth/google/callback`,
@@ -53,10 +53,13 @@ export default {
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: `${process.env.BACKEND_URL}/auth/facebook/callback`,
   },
+  tiktokAuth: {
+    clientID: process.env.TIKTOK_CLIENT_ID, // This should be clientKey
+    clientSecret: process.env.TIKTOK_CLIENT_SECRET,
+    callbackURL: `${process.env.BACKEND_URL}/api/v1/auth/tiktok/callback`,
+  },
 
-   cloudinary_cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    cloudinary_api_key: process.env.CLOUDINARY_API_KEY,
-    cloudinary_api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloudinary_cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  cloudinary_api_key: process.env.CLOUDINARY_API_KEY,
+  cloudinary_api_secret: process.env.CLOUDINARY_API_SECRET,
 };
-
-

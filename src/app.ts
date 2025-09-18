@@ -8,7 +8,7 @@ import notFound from "./app/middlewares/notFound";
 import express, { Application, Request, Response } from "express";
 import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 
-
+import session from "express-session";
 
 const app: Application = express();
 
@@ -19,6 +19,16 @@ app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 app.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
 
 // app routes
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'fallback-secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 600000 // 10 minutes
+  }
+}));
 app.use(passport.initialize());
 app.use("/api/v1", router);
 
