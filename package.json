@@ -4,10 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "author": {
-    "name": "Shariful Islam",
-    "email": "sharifulisl96@gmail.com"
+    "name": "Md Sanim Mia",
+    "email": "hasansanim562@gmail.com"
   },
   "scripts": {
+     "postinstall": "npx prisma generate",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js"
